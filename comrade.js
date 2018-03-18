@@ -1,4 +1,4 @@
-let dict = {
+var dict = {
   // "a": "б",
   "b": "ь",
   "c": "с",
@@ -21,7 +21,7 @@ let dict = {
   "t": "т",
   "u": "ц",
   // "v": "v",
-  "w": "щ",
+  "w": "ш",
   "x": "х",
   "y": "у",
   "z": "и",
@@ -47,28 +47,45 @@ let dict = {
   // "T": "Т",
   "U": "Ц",
   // "V": "V",
-  "W": "Щ",
+  "W": "Ш",
   "X": "Х",
   "Y": "У",
   // "Z": "Z"
 }
 
+var initTextPresent = true;
+
 window.addEventListener("keypress", keyPressHandler, false);
 window.addEventListener("keydown", keyDownHandler, false);
-
-function keyDownHandler(e) {
-  var field = document.getElementById("field");
-  if (e.keyCode == 8) {
-    var content = field.innerHTML.slice(0, -1);
-    field.innerHTML = content;
-  }
-}
+window.addEventListener("click", clickHandler, false);
 
 function keyPressHandler(e) {
-  var field = document.getElementById("field");
-    var key = String.fromCharCode(e.keyCode);
+    removeInitText();
+    let field = document.getElementById("field");
+    let key = String.fromCharCode(e.keyCode);
     if (key in dict) {
       key = dict[key];
     }
-    field.append(key);
+    field.value = field.value + key;
+}
+
+function keyDownHandler(e) {
+  removeInitText();
+  let field = document.getElementById("field");
+  if (e.keyCode == 8) {
+    let content = field.value.slice(0, -1);
+    field.value = content;
+  }
+}
+
+function clickHandler(e) {
+  removeInitText();
+}
+
+function removeInitText() {
+  let field = document.getElementById("field");
+  if (initTextPresent) {
+    field.value = '';
+    initTextPresent = false;
+  }
 }

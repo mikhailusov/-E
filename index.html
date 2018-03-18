@@ -4,17 +4,37 @@
     <script src="comrade.js" type="text/javascript"></script>
     <style>
     body {
-      font-family: Arial;
-      margin: 20px;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #c23616, #e84118);
+      margin: 40px;
+    }
+    h1 {
+      font-size: 62px;
+      line-height: 85%;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 100px;
     }
     #field {
-      font-size: 82pt;
+      font-size: 62pt;
+      background: none;
+      border: 0px;
+      margin: auto;
+      display: block;
+      width: 90%;
+      height: 80%;
+      color: white;
+      cursor: text;
+    }
+    #field:focus {
+      outline: none !important;
     }
     </style>
   </head>
   <body>
-    <h1>✊🏻 CФMЯAДЗ!</h1>
-    <h3>Рlзasз, турз sоппзтп!пg...</h3>
-    <div id="field"></div>
+    <h1>✊🏻 CФMЯAДЗ</h1>
+    <!-- <h3></h3> -->
+    <textarea id="field" autofocus disabled>Рlзasз, турз sоппзтп!пg...</textarea>
+    <!-- <div></div> -->
   </body>
 </html>
